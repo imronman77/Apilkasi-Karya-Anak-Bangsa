@@ -50,38 +50,20 @@
 <header>IT GABUT</header>
 
 <main>
-    <input type="text" id="kodeToko" placeholder="Kode Toko">
+    <input type="text" id="kodeToko" placeholder="Kode Toko mu Boss">
     <br><br>
-    <button onclick="cekLink()">Tolong cekin bos</button>
-    <button onclick="location.reload()">Reload</button>
+    <button onclick="cekLink()">Tolong cekin Boss</button>
+    <button onclick="reloadFrame()">Refresh dong Boss</button>
 
     <!-- iframe akan menampilkan laman target -->
     <div id="iframeContainer"></div>
 </main>
 
-<footer>Papa Pulang Mama Goyang</footer>
+<footer>Gunakan dengan bijak ,jangan di report</footer>
 
 <script>
+let lastUrl = ''; // menyimpan URL terakhir yang di-generate
+
 function cekLink() {
     const kodeToko = document.getElementById('kodeToko').value.trim();
     if (!kodeToko) {
-        alert("Masukkan kode toko dulu ya!");
-        return;
-    }
-
-    const today = new Date();
-    const tanggal = String(today.getDate()).padStart(2, '0');
-    const bulan = String(today.getMonth() + 1).padStart(2, '0');
-    const tahun = today.getFullYear();
-    const dateSo = `${tanggal}-${bulan}-${tahun}`;
-
-    const url = `https://app.alfastore.co.id/prd/api/rpt/laporan_so/csel_last_so_absolute_desc?storeId=${kodeToko}&dateSo=${dateSo}`;
-
-    // tampilkan laman di bawah tombol menggunakan iframe
-    const container = document.getElementById('iframeContainer');
-    container.innerHTML = `<iframe src="${url}" frameborder="0"></iframe>`;
-}
-</script>
-
-</body>
-</html>
